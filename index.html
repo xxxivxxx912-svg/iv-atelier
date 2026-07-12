@@ -14,7 +14,7 @@
   <meta property="og:type" content="website">
   <!-- 公開後、下記2行を実際のURLに変更してください -->
   <meta property="og:url" content="">
-  <meta property="og:image" content="">
+  <meta property="og:image" content="hero.jpg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -236,6 +236,13 @@
     .hero-visual::after {
       border: 1px solid rgba(255,255,255,.35);
       inset: 16px;
+    }
+
+    .hero-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
     }
 
     .hero-visual-label {
@@ -756,8 +763,8 @@
           <img src="images/hero.jpg" alt="I,Vのドール服">
         </div>
       -->
-      <div class="hero-visual" aria-label="メイン写真の仮枠">
-        <span class="hero-visual-label">I,V — atelier scene</span>
+      <div class="hero-visual">
+        <img src="hero.jpg" alt="木漏れ日が差し込む、I,Vの静かな仕立てアトリエ">
       </div>
     </header>
 
