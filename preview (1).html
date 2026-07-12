@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>I,V — atelier for dolls</title>
+  <meta name="description" content="I,Vは、生成りの布やレース、リボンを使い、人形のための服を一着ずつ手で仕立てる小さなアトリエです。">
+  <meta name="theme-color" content="#F7F3EB">
+
+  <!-- SNSで共有した際の表示設定 -->
+  <meta property="og:title" content="I,V — atelier for dolls">
+  <meta property="og:description" content="小さな身体に、静かな物語を。">
+  <meta property="og:type" content="website">
+  <!-- 公開後、下記2行を実際のURLに変更してください -->
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Serif+JP:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --cream: #F7F3EB;
+      --cream-deep: #EEE7DA;
+      --ink: #33291F;
+      --ink-soft: #6F6455;
+      --brass: #96793F;
+      --line: #D9D0C0;
+      --white-soft: rgba(255,255,255,.45);
+      --shadow: 0 18px 50px rgba(64, 49, 34, .08);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 84px;
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: "Noto Serif JP", serif;
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 2;
+      letter-spacing: .06em;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    .en {
+      font-family: "Cormorant Garamond", serif;
+      letter-spacing: .14em;
+    }
+
+    .site-shell {
+      width: min(100%, 1160px);
+      margin: 0 auto;
+      padding: 0 28px 80px;
+    }
+
+    /* ---------- navigation ---------- */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(247, 243, 235, .88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(217, 208, 192, .75);
+    }
+
+    .nav-inner {
+      width: min(100%, 1160px);
+      margin: 0 auto;
+      padding: 15px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .nav-logo {
+      text-decoration: none;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 28px;
+      line-height: 1;
+      letter-spacing: .04em;
+    }
+
+    .comma {
+      color: var(--brass);
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px 22px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 12px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      transition: color .25s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--brass);
+    }
+
+    /* ---------- hero ---------- */
+    .hero {
+      min-height: 88vh;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(260px, .9fr);
+      align-items: center;
+      gap: 8vw;
+      position: relative;
+      padding: 72px 0 40px;
+      animation: appear 1.3s ease both;
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    .hero-copy {
+      position: relative;
+      padding-right: 72px;
+    }
+
+    .hero-logo {
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 400;
+      font-size: clamp(84px, 12vw, 150px);
+      line-height: .8;
+      letter-spacing: .01em;
+    }
+
+    .hero-sub {
+      margin-top: 22px;
+      font-size: 12px;
+      color: var(--ink-soft);
+      text-transform: lowercase;
+    }
+
+    .hero-rule {
+      margin-top: 46px;
+      width: 64px;
+      height: 1px;
+      background: var(--brass);
+    }
+
+    .hero-intro {
+      margin-top: 26px;
+      max-width: 33em;
+      color: var(--ink-soft);
+      font-size: 13px;
+      line-height: 2.1;
+    }
+
+    .tategaki {
+      position: absolute;
+      top: 4px;
+      right: 0;
+      writing-mode: vertical-rl;
+      font-size: 13px;
+      line-height: 2.6;
+      letter-spacing: .3em;
+      color: var(--ink-soft);
+      border-right: 1px solid var(--line);
+      padding-right: 14px;
+      min-height: 16em;
+    }
+
+    .hero-visual {
+      aspect-ratio: 4 / 5;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(rgba(247,243,235,.18), rgba(247,243,235,.18)),
+        linear-gradient(145deg, #E9E0D0 0%, #DCD0BC 48%, #B8A78D 100%);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-visual::before,
+    .hero-visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .hero-visual::before {
+      background:
+        radial-gradient(circle at 28% 20%, rgba(255,255,255,.75), transparent 34%),
+        linear-gradient(115deg, transparent 0 50%, rgba(150,121,63,.10) 50% 51%, transparent 51% 100%);
+    }
+
+    .hero-visual::after {
+      border: 1px solid rgba(255,255,255,.35);
+      inset: 16px;
+    }
+
+    .hero-visual-label {
+      position: absolute;
+      left: 22px;
+      bottom: 20px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 12px;
+      letter-spacing: .18em;
+      color: var(--ink-soft);
+    }
+
+    /* ---------- shared sections ---------- */
+    section {
+      margin-top: 128px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 38px;
+    }
+
+    .sec-label {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 12px;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-bottom: 6px;
+    }
+
+    .sec-title {
+      font-weight: 400;
+      font-size: clamp(21px, 3vw, 28px);
+      letter-spacing: .18em;
+    }
+
+    .section-note {
+      max-width: 34em;
+      font-size: 12px;
+      color: var(--ink-soft);
+      text-align: right;
+    }
+
+    /* ---------- collection ---------- */
+    .collection-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 46px 28px;
+    }
+
+    .collection-card {
+      min-width: 0;
+    }
+
+    .collection-card details {
+      border: 0;
+    }
+
+    .collection-card summary {
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .collection-card summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .collection-image {
+      aspect-ratio: 3 / 4;
+      border: 1px solid var(--line);
+      background: linear-gradient(160deg, #ECE5D7 0%, #E2D8C5 100%);
+      position: relative;
+      overflow: hidden;
+      transition: transform .35s ease, box-shadow .35s ease;
+    }
+
+    .collection-card summary:hover .collection-image,
+    .collection-card summary:focus-visible .collection-image {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+
+    .collection-image::after {
+      content: "PHOTO";
+      position: absolute;
+      right: 12px;
+      bottom: 10px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 10px;
+      letter-spacing: .22em;
+      color: var(--ink-soft);
+    }
+
+    .collection-meta {
+      margin-top: 15px;
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .collection-name {
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .collection-name .work-en {
+      display: block;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 12px;
+      letter-spacing: .18em;
+      color: var(--brass);
+    }
+
+    .status {
+      flex: 0 0 auto;
+      border: 1px solid var(--line);
+      padding: 3px 9px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 10px;
+      line-height: 1.5;
+      letter-spacing: .16em;
+      color: var(--ink-soft);
+      text-transform: uppercase;
+    }
+
+    .collection-detail {
+      margin-top: 18px;
+      padding: 18px 0 4px;
+      border-top: 1px solid var(--line);
+      color: var(--ink-soft);
+      font-size: 13px;
+    }
+
+    .detail-photos {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .detail-photo {
+      aspect-ratio: 1;
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, #F1EBDD, #DDD1BD);
+    }
+
+    /* ---------- about ---------- */
+    .about-layout {
+      display: grid;
+      grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr);
+      gap: 8vw;
+      align-items: start;
+    }
+
+    .about-mark {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(78px, 10vw, 126px);
+      line-height: .8;
+      color: var(--brass);
+      opacity: .72;
+    }
+
+    .about-copy p + p {
+      margin-top: 1.45em;
+    }
+
+    .about-lead {
+      font-size: 17px;
+      line-height: 2.15;
+      letter-spacing: .1em;
+    }
+
+    /* ---------- guide ---------- */
+    .guide-list {
+      border-top: 1px solid var(--line);
+    }
+
+    .guide-row {
+      display: grid;
+      grid-template-columns: 150px minmax(0, 1fr);
+      gap: 28px;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .guide-row dt {
+      color: var(--brass);
+      font-weight: 400;
+      letter-spacing: .13em;
+    }
+
+    .guide-row dd {
+      color: var(--ink-soft);
+    }
+
+    /* ---------- contact ---------- */
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: minmax(0, .72fr) minmax(0, 1.28fr);
+      gap: 7vw;
+      align-items: start;
+    }
+
+    .contact-text {
+      color: var(--ink-soft);
+      font-size: 13px;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 18px;
+    }
+
+    .form-field label {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 12px;
+      color: var(--brass);
+      letter-spacing: .13em;
+    }
+
+    .form-field input,
+    .form-field textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      background: var(--white-soft);
+      color: var(--ink);
+      padding: 13px 14px;
+      border-radius: 0;
+      outline: none;
+      transition: border-color .25s ease, background .25s ease;
+    }
+
+    .form-field textarea {
+      min-height: 170px;
+      resize: vertical;
+    }
+
+    .form-field input:focus,
+    .form-field textarea:focus {
+      border-color: var(--brass);
+      background: rgba(255,255,255,.7);
+    }
+
+    .submit-button {
+      border: 1px solid var(--brass);
+      background: transparent;
+      color: var(--brass);
+      padding: 14px 22px;
+      letter-spacing: .18em;
+      cursor: pointer;
+      transition: background .25s ease, color .25s ease;
+    }
+
+    .submit-button:hover,
+    .submit-button:focus-visible {
+      background: var(--brass);
+      color: var(--cream);
+    }
+
+    .form-note {
+      font-size: 11px;
+      color: var(--ink-soft);
+    }
+
+    /* ---------- english guide ---------- */
+    .english-box {
+      border: 1px solid var(--line);
+      padding: clamp(26px, 5vw, 46px);
+      background: rgba(255,255,255,.23);
+    }
+
+    .english-box h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 400;
+      font-size: 24px;
+      letter-spacing: .14em;
+      color: var(--brass);
+    }
+
+    .english-box p + p {
+      margin-top: 1.25em;
+    }
+
+    .english-grid {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px 34px;
+    }
+
+    .english-grid h4 {
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 500;
+      font-size: 14px;
+      letter-spacing: .15em;
+      margin-bottom: 7px;
+    }
+
+    .english-grid p {
+      color: var(--ink-soft);
+      font-size: 13px;
+    }
+
+    /* ---------- footer ---------- */
+    footer {
+      margin-top: 130px;
+      padding-top: 34px;
+      border-top: 1px solid var(--line);
+      text-align: center;
+      color: var(--ink-soft);
+      font-size: 11px;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .social-links a {
+      text-decoration: none;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 14px;
+      letter-spacing: .18em;
+      padding: 8px 12px;
+      transition: color .25s ease;
+    }
+
+    .social-links a:hover,
+    .social-links a:focus-visible {
+      color: var(--brass);
+    }
+
+    .footer-logo {
+      display: block;
+      margin-bottom: 8px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 24px;
+      color: var(--ink);
+    }
+
+    /* ---------- mobile ---------- */
+    @media (max-width: 760px) {
+      html {
+        scroll-padding-top: 70px;
+      }
+
+      .site-shell {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+
+      .nav-inner {
+        padding: 13px 20px;
+      }
+
+      .nav-links {
+        gap: 6px 12px;
+      }
+
+      .nav-links a {
+        font-size: 10px;
+      }
+
+      .hero {
+        min-height: 86vh;
+        grid-template-columns: 1fr;
+        gap: 48px;
+        padding-top: 56px;
+      }
+
+      .hero-copy {
+        padding-right: 58px;
+      }
+
+      .hero-logo {
+        font-size: 88px;
+      }
+
+      .hero-intro {
+        max-width: 25em;
+      }
+
+      .hero-visual {
+        aspect-ratio: 4 / 5;
+      }
+
+      section {
+        margin-top: 102px;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .section-note {
+        margin-top: 14px;
+        text-align: left;
+      }
+
+      .collection-grid {
+        gap: 36px 16px;
+      }
+
+      .collection-meta {
+        display: block;
+      }
+
+      .status {
+        display: inline-block;
+        margin-top: 9px;
+      }
+
+      .detail-photos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .about-layout,
+      .contact-wrap {
+        grid-template-columns: 1fr;
+        gap: 34px;
+      }
+
+      .about-mark {
+        font-size: 82px;
+      }
+
+      .guide-row {
+        grid-template-columns: 95px minmax(0, 1fr);
+        gap: 18px;
+      }
+
+      .english-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 460px) {
+      .nav-links a:nth-child(4),
+      .nav-links a:nth-child(5) {
+        display: none;
+      }
+
+      .collection-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .collection-name {
+        font-size: 12px;
+      }
+
+      .guide-row {
+        grid-template-columns: 1fr;
+        gap: 5px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="site-nav" aria-label="メインナビゲーション">
+    <div class="nav-inner">
+      <a class="nav-logo" href="#home" aria-label="I,V ホーム">
+        I<span class="comma">,</span>V
+      </a>
+
+      <div class="nav-links">
+        <a href="#collection">Collection</a>
+        <a href="#about">About</a>
+        <a href="#guide">Guide</a>
+        <a href="#contact">Contact</a>
+        <a href="#english">English</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="site-shell">
+    <!-- HOME -->
+    <header class="hero" id="home">
+      <div class="hero-copy">
+        <h1 class="hero-logo">I<span class="comma">,</span>V</h1>
+        <p class="hero-sub en">atelier for dolls</p>
+
+        <p class="tategaki">小さな身体に、静かな物語を。</p>
+
+        <div class="hero-rule" aria-hidden="true"></div>
+
+        <p class="hero-intro">
+          人形たちが暮らす街の片隅で、今日も一着ずつ。<br>
+          生成りの布、淡い色、レースとリボンを使い、静かな時間を纏うようなドール服を仕立てています。
+        </p>
+      </div>
+
+      <!--
+        写真を入れる場合：
+        下の div.hero-visual を、次の形式に置き換えてください。
+        <div class="hero-visual">
+          <img src="images/hero.jpg" alt="I,Vのドール服">
+        </div>
+      -->
+      <div class="hero-visual" aria-label="メイン写真の仮枠">
+        <span class="hero-visual-label">I,V — atelier scene</span>
+      </div>
+    </header>
+
+    <!-- COLLECTION -->
+    <section id="collection">
+      <div class="section-head">
+        <div>
+          <p class="sec-label">Collection</p>
+          <h2 class="sec-title">作品</h2>
+        </div>
+        <p class="section-note">
+          写真を押すと、作品の詳細と追加写真が開きます。
+        </p>
+      </div>
+
+      <div class="collection-grid">
+        <!-- 作品1 -->
+        <article class="collection-card">
+          <details>
+            <summary>
+              <div class="collection-image" aria-label="Rêverieの写真仮枠"></div>
+              <div class="collection-meta">
+                <p class="collection-name">
+                  <span class="work-en">Rêverie</span>
+                  夢想のドレス
+                </p>
+                <span class="status">Sold Out</span>
+              </div>
+            </summary>
+
+            <div class="collection-detail">
+              <p><strong>Size：</strong>1/4 doll size</p>
+              <p>生成りの布と繊細なレースを重ね、遠い日の夢のような静けさを形にしたドレスです。</p>
+
+              <div class="detail-photos" aria-label="Rêverieの追加写真仮枠">
+                <div class="detail-photo"></div>
+                <div class="detail-photo"></div>
+                <div class="detail-photo"></div>
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 作品2 -->
+        <article class="collection-card">
+          <details>
+            <summary>
+              <div class="collection-image" aria-label="生成りのセーラーの写真仮枠"></div>
+              <div class="collection-meta">
+                <p class="collection-name">
+                  <span class="work-en">Sailor Collection — Ivory</span>
+                  生成りのセーラー
+                </p>
+                <span class="status">Archive</span>
+              </div>
+            </summary>
+
+            <div class="collection-detail">
+              <p><strong>Size：</strong>1/3 doll size</p>
+              <p>柔らかな生成りを基調に、落ち着いた佇まいと日常に馴染む端正さを大切に仕立てました。</p>
+
+              <div class="detail-photos" aria-label="生成りのセーラーの追加写真仮枠">
+                <div class="detail-photo"></div>
+                <div class="detail-photo"></div>
+                <div class="detail-photo"></div>
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 作品3 -->
+        <article class="collection-card">
+          <details>
+            <summary>
+              <div class="collection-image" aria-label="ネイビーのセーラーの写真仮枠"></div>
+              <div class="collection-meta">
+                <p class="collection-name">
+                  <span class="work-en">Sailor Collection — Navy</span>
+                  ネイビーのセーラー
+                </p>
+                <span class="status">Archive</span>
+              </div>
+            </summary>
+
+            <div class="collection-detail">
+              <p><strong>Size：</strong>1/3 doll size</p>
+              <p>深いネイビーに生成りを合わせ、静かな夜と古い制服を思わせる一着に仕立てました。</p>
+
+              <div class="detail-photos" aria-label="ネイビーのセーラーの追加写真仮枠">
+                <div class="detail-photo"></div>
+                <div class="detail-photo"></div>
+                <div class="detail-photo"></div>
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 作品4 -->
+        <article class="collection-card">
+          <details>
+            <summary>
+              <div class="collection-image" aria-label="小さな庭のドレスの写真仮枠"></div>
+              <div class="collection-meta">
+                <p class="collection-name">
+                  <span class="work-en">Small Garden Dress</span>
+                  小さな庭のドレス
+                </p>
+                <span class="status">Sold Out</span>
+              </div>
+            </summary>
+
+            <div class="collection-detail">
+              <p><strong>Size：</strong>Approx. 27–30 cm doll size</p>
+              <p>小さな庭に咲く花と、古い家の窓辺に差し込む光を思いながら仕立てたドレスです。</p>
+
+              <div class="detail-photos" aria-label="小さな庭のドレスの追加写真仮枠">
+                <div class="detail-photo"></div>
+                <div class="detail-photo"></div>
+                <div class="detail-photo"></div>
+              </div>
+            </div>
+          </details>
+        </article>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="section-head">
+        <div>
+          <p class="sec-label">About</p>
+          <h2 class="sec-title">アトリエについて</h2>
+        </div>
+      </div>
+
+      <div class="about-layout">
+        <div class="about-mark" aria-hidden="true">I,V</div>
+
+        <div class="about-copy">
+          <p class="about-lead">
+            人形たちが暮らす街の片隅で、<br>
+            今日も一着ずつ。
+          </p>
+
+          <p>
+            I,Vは、人形のための服を一着ずつ手で仕立てる小さなアトリエです。
+          </p>
+
+          <p>
+            生成りの布、淡い色、レース、リボン。古い街や静かな森の記憶をたどるように、型紙づくりから縫製まで、時間をかけて向き合っています。
+          </p>
+
+          <p>
+            手に取ってくださった方と、その人形にとって、長く大切にしたくなる一着でありますように。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- GUIDE -->
+    <section id="guide">
+      <div class="section-head">
+        <div>
+          <p class="sec-label">Guide</p>
+          <h2 class="sec-title">ご案内</h2>
+        </div>
+      </div>
+
+      <dl class="guide-list">
+        <div class="guide-row">
+          <dt>対応サイズ</dt>
+          <dd>1/3ドールサイズ、1/4ドールサイズ、約27〜30cmドールサイズなど。各作品の詳細をご確認ください。</dd>
+        </div>
+
+        <div class="guide-row">
+          <dt>販売方法</dt>
+          <dd>イベントおよびオンラインショップで、不定期に販売しています。販売予定はSNSでお知らせします。</dd>
+        </div>
+
+        <div class="guide-row">
+          <dt>制作について</dt>
+          <dd>型紙づくりから縫製、仕上げまで、手作業で一着ずつ制作しています。</dd>
+        </div>
+
+        <div class="guide-row">
+          <dt>発送</dt>
+          <dd>日本国内へ発送します。海外発送をご希望の場合は、Contactよりご相談ください。</dd>
+        </div>
+
+        <div class="guide-row">
+          <dt>再販</dt>
+          <dd>素材の在庫や制作状況により、再販できない場合があります。決定した際はSNSでご案内します。</dd>
+        </div>
+      </dl>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="section-head">
+        <div>
+          <p class="sec-label">Contact</p>
+          <h2 class="sec-title">お問い合わせ</h2>
+        </div>
+      </div>
+
+      <div class="contact-wrap">
+        <div class="contact-text">
+          <p>
+            作品、販売、海外発送などのお問い合わせはこちらからお送りください。
+          </p>
+          <p style="margin-top:1.2em;">
+            内容を確認後、順次ご返信いたします。
+          </p>
+        </div>
+
+        <!--
+          重要：
+          Formspree登録後、actionのXXXXXXXX部分を、
+          あなた専用のフォームIDへ変更してください。
+          例：https://formspree.io/f/abcdwxyz
+        -->
+        <form class="contact-form" action="https://formspree.io/f/XXXXXXXX" method="POST">
+          <div class="form-field">
+            <label for="name">お名前</label>
+            <input id="name" name="name" type="text" autocomplete="name" required>
+          </div>
+
+          <div class="form-field">
+            <label for="email">メールアドレス</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+          </div>
+
+          <div class="form-field">
+            <label for="message">お問い合わせ内容</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+
+          <input type="hidden" name="_subject" value="I,V 公式サイトからのお問い合わせ">
+
+          <button class="submit-button" type="submit">送信する</button>
+
+          <p class="form-note">
+            ※ Formspreeの専用URLを設定するまでは、送信できません。
+          </p>
+        </form>
+      </div>
+    </section>
+
+    <!-- ENGLISH GUIDE -->
+    <section id="english">
+      <div class="section-head">
+        <div>
+          <p class="sec-label">English Guide</p>
+          <h2 class="sec-title">For Overseas Customers</h2>
+        </div>
+      </div>
+
+      <div class="english-box">
+        <h3>About I,V</h3>
+        <p>
+          I,V is a small atelier creating handcrafted clothing for dolls. Each piece is carefully made from pattern drafting to final sewing, using natural fabrics, lace, ribbons, and softly muted colors.
+        </p>
+
+        <div class="english-grid">
+          <div>
+            <h4>Sizes</h4>
+            <p>
+              We create clothing for several doll sizes, including 1/3, 1/4, and approximately 27–30 cm dolls. Please check each collection item for details.
+            </p>
+          </div>
+
+          <div>
+            <h4>Sales</h4>
+            <p>
+              Items are available through selected doll events and our online shop. New sales information is announced on Instagram and X.
+            </p>
+          </div>
+
+          <div>
+            <h4>International Shipping</h4>
+            <p>
+              International shipping may be available by individual arrangement. Please contact us through the form above before purchasing.
+            </p>
+          </div>
+
+          <div>
+            <h4>Contact</h4>
+            <p>
+              For questions about sizing, shipping, or available items, please use the contact form.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="social-links" aria-label="SNSリンク">
+        <a href="https://www.instagram.com/rosso0912/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <span aria-hidden="true">｜</span>
+        <a href="https://x.com/xxxivxxx" target="_blank" rel="noopener noreferrer">X</a>
+      </div>
+
+      <span class="footer-logo">I<span class="comma">,</span>V</span>
+      <span class="en">© 2026 I,V — all rights reserved</span>
+    </footer>
+  </main>
+</body>
+</html>
